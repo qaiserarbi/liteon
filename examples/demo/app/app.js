@@ -3,7 +3,7 @@
  * This module runs unchanged on the server and in the browser.
  */
 
-import { html, createRouter } from './liteon.js';
+import { html, createRouter } from 'liteon';
 import { auth, frameworkKb } from './store.js';
 import { Home } from './pages/home.js';
 import { Users } from './pages/users.js';

@@ -1,4 +1,4 @@
-import { html, signal } from '../liteon.js';
+import { html, signal } from 'liteon';
 import { auth } from '../store.js';
 import { router } from '../app.js';
 

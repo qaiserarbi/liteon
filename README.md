@@ -44,11 +44,15 @@ No compiler. `html` is a tagged template literal — the browser parses your mar
 ## Run the demo
 
 ```sh
-npm install        # dev deps only (tests); the framework itself has none
+npm install        # dev deps for the tests + links liteon into the demo
 npm run demo       # http://localhost:3000
 ```
 
 The demo is a complete SSR app — login with guards, a users list fed by an API, two-way-bound search, live client navigation — served with **zero build step**: the browser imports the same ES modules Node runs.
+
+It is also a real consumer, not an insider: [`examples/demo`](examples/demo) is a separate package that declares `"liteon": "^0.1.2"` as an ordinary registry dependency and imports it by name (`import { html } from 'liteon'`), never by reaching into `src/`. Node resolves that from `node_modules`; the browser resolves it through an [import map](examples/demo/README.md) the server generates from the package's own `exports` field.
+
+Which means you can **copy `examples/demo` anywhere, run `npm install && npm start`, and it works** — it builds against the published package with nothing pointing back at this repository. Inside the repo that same dependency resolves to the checkout instead, because the demo is an npm workspace and this package satisfies the range, so the demo and the integration test exercise your working tree rather than the last release.
 
 ## Tests
 
@@ -72,7 +76,7 @@ npm test           # 44 tests: core + SSR + router + http, jsdom DOM tests,
 
 ```
 src/            the framework (six files, ~700 lines, extensively commented)
-examples/demo/  full SSR demo app (server, pages, store, styles)
+examples/demo/  full SSR demo app — its own package, installs liteon by name
 docs/           the guides above
 test/           unit + DOM + integration suites
 ```

@@ -1,4 +1,4 @@
-import { html, signal, computed } from '../liteon.js';
+import { html, signal, computed } from 'liteon';
 import { frameworkKb } from '../store.js';
 
 export function Home() {

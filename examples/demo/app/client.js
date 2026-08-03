@@ -1,6 +1,5 @@
-import { hydrate } from './liteon.js';
+import { hydrate, effect } from 'liteon';
 import { App, router } from './app.js';
-import { effect } from './liteon.js';
 
 // Establish the current route before hydrating so router.view resolves.
 router.start();

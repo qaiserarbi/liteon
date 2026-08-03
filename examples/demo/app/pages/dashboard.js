@@ -1,4 +1,4 @@
-import { html } from '../liteon.js';
+import { html } from 'liteon';
 import { auth, users } from '../store.js';
 
 export function Dashboard() {

@@ -6,15 +6,31 @@
 npm install liteon
 ```
 
-Or skip npm entirely — liteon is plain ES modules with zero dependencies, so you can vendor `src/` and import it directly in the browser:
+Then import it by name, on the server or in the browser:
 
-```html
-<script type="module">
-  import { signal, html, render } from '/liteon/index.js';
-</script>
+```js
+import { signal, html, render } from 'liteon';
 ```
 
 There is no compiler, no bundler requirement, and no build step. (Bundling and minifying for production is still a good idea — the whole framework is 4.3 KB min+gzip.)
+
+### Bare specifiers without a bundler
+
+If you *do* skip the bundler, serve the installed package from a URL and declare an
+import map, so the same `from 'liteon'` line works untouched in the browser:
+
+```html
+<script type="importmap">
+  { "imports": { "liteon": "/vendor/liteon/src/index.js" } }
+</script>
+<script type="module" src="/app/main.js"></script>
+```
+
+[`examples/demo`](../examples/demo) does exactly this — it generates the map from the
+package's `exports` field and serves `/vendor/liteon/*` out of `node_modules`.
+
+Or skip npm entirely: liteon is plain ES modules with zero dependencies, so you can
+vendor the files and import them by path (`from '/liteon/index.js'`).
 
 ## Your first component
 

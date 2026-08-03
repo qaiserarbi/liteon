@@ -1,4 +1,4 @@
-import { html } from '../liteon.js';
+import { html } from 'liteon';
 import { users, usersError, loadUsers, search, filteredUsers } from '../store.js';
 
 export function Users() {

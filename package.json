@@ -1,6 +1,6 @@
 {
   "name": "liteon",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "The lightest way to build for the web — signals, SSR, routing with guards, and an HTTP client in a few KB.",
   "type": "module",
   "main": "src/index.js",
@@ -28,6 +28,9 @@
   },
   "files": [
     "src"
+  ],
+  "workspaces": [
+    "examples/demo"
   ],
   "scripts": {
     "demo": "node examples/demo/server.js",

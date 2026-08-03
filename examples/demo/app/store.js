@@ -5,7 +5,7 @@
  * with serializeState(), so data fetched during SSR is never refetched.
  */
 
-import { signal, computed, createHttp, getServerState } from './liteon.js';
+import { signal, computed, createHttp, getServerState } from 'liteon';
 
 const initial = getServerState() || {};
 
