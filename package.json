@@ -1,0 +1,52 @@
+{
+  "name": "liteon",
+  "version": "0.1.0",
+  "description": "The lightest way to build for the web — signals, SSR, routing with guards, and an HTTP client in a few KB.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./ssr": {
+      "types": "./src/ssr.d.ts",
+      "default": "./src/ssr.js"
+    },
+    "./reactive": {
+      "types": "./src/reactive.d.ts",
+      "default": "./src/reactive.js"
+    },
+    "./router": {
+      "types": "./src/router.d.ts",
+      "default": "./src/router.js"
+    },
+    "./http": {
+      "types": "./src/http.d.ts",
+      "default": "./src/http.js"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "demo": "node examples/demo/server.js",
+    "test": "node test/run.js && node test/dom.js && node test/integration.js",
+    "typecheck": "tsc"
+  },
+  "keywords": [
+    "framework",
+    "signals",
+    "ssr",
+    "router",
+    "guards",
+    "lightweight"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "jsdom": "^29.1.1",
+    "typescript": "^7.0.2"
+  },
+  "types": "src/index.d.ts"
+}
